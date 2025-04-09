@@ -12,7 +12,7 @@ mixin studentForm(student, saveUrl, cancelUrl)
 
             div.form-input
                 label(for='grade_level') Grade
-                input(id='grade_level' name='grade_level')
+                select(id='grade_level' name='grade_level')
                     each grade in [9, 10, 11, 12]
                         option(value=grade selected = (grade === student.grade_level)) #{grade}
 
