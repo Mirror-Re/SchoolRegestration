@@ -9,6 +9,13 @@ block content
         p Department: #{course.department}
         p= course.description
     div.students
+        h4 Available Students
+        form(action=`/courses/${course.id}/enroll` method= "post")
+            select(name='student' id='student' autocomplete=off)
+                each student in availableStudents
+                    option(value= student.id) #{student.first_name}
+            button.button(type='submit') Enroll
+
         h4 Enrolled students
         table
             thead
