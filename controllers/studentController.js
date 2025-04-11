@@ -12,13 +12,13 @@ module.exports.viewProfile = async function (req, res) {
         include: 'courses'
     });
     const courses = await Course.findAll();
-    let avaliableCourses = [];
+    let availableCourses = [];
     for (let i=0; i<courses.length; i++){
         if (!studentHasCourse(student, courses[i])){
-            avaliableCourses.push(courses[i]);
+            availableCourses.push(courses[i]);
         }
     }
-    res.render('student/profile', {student, avaliableCourses});
+    res.render('student/profile', {student, availableCourses});
 }
 
 //render add

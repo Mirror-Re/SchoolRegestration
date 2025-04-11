@@ -10,7 +10,7 @@ block content
     h4 Student Courses
     form(action=`/students/${student.id}/enroll/` method='post')
         select(name='course' id='course' autocomplete=off)
-            each course in avaliableCourses
+            each course in availableCourses
                 option(value=course.id) #{course.name}
         button.button(type='submit') Enroll
     table

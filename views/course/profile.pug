@@ -10,7 +10,7 @@ block content
         p= course.description
     div.students
         h4 Available Students
-        form(action=`/courses/${course.id}/enroll` method= "post")
+        form(action=`/courses/${course.id}/enroll` method= 'post')
             select(name='student' id='student' autocomplete=off)
                 each student in availableStudents
                     option(value= student.id) #{student.first_name}
