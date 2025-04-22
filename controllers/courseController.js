@@ -78,8 +78,19 @@ module.exports.deleteCourse = async function (req, res) {
 //Add student to a course
 module.exports.enrollStudent = async function (req, res) {
     await StudentCourses.create({
-        student_id: req.params.student,
-        course_id: req.body.courseId
+        student_id: req.body.student,
+        course_id: req.params.courseId
+    });
+    res.redirect(`/courses/profile/${req.params.courseId}`);
+}
+
+//remove a student from a course
+module.exports.removeStudent = async function (req, res) {
+    await StudentCourses.destroy({
+        where: {
+            course_id: req.params.courseId,
+            student_id: req.params.studentId
+        }
     });
     res.redirect(`/courses/profile/${req.params.courseId}`);
 }
